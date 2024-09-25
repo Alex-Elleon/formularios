@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Card, Container, Form, Button } from "react-bootstrap";
-
+import LoadingButton from "./Log";
 
 const App = () => {
   const title = "LogIn";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [data, setData] = useState({})
 
   const onChange = (e) => {
     e.preventDefault();
@@ -14,6 +16,18 @@ const App = () => {
     } else if (e.target.name === "password") {
       setPassword(e.target.value)
     }
+  }
+
+  const onChangeRegister = (e) => {
+    e.preventDefault();
+    const nData = data;
+    nData[e.target.name] = e.target.value;
+    setData(nData);
+  };
+
+  const onSubmit = () => {
+    // Enviar data al server
+    console.log(data)
   }
 
   return (
@@ -47,20 +61,22 @@ const App = () => {
           <Form>
             <Form.Group>
               <Form.Label>Nombre:</Form.Label>
-              <Form.Control placeholder="Ingresa tu nombre/nombres" />
+              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tu nombre/nombres" name="name" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Apellidos:</Form.Label>
-              <Form.Control placeholder="Ingresa tus apellidos" />
+              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tus apellidos" name="las_name" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Correro:</Form.Label>
-              <Form.Control placeholder="Ingresa tu correro electronico" />
+              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tu correro electronico" type="email" name="email" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Contraseñas:</Form.Label>
-              <Form.Control placeholder="Captura una contraseña" />
-            </Form.Group>
+              <Form.Control onChange={onChangeRegister} placeholder="Captura una contraseña" type="password" name="password" />
+            </Form.Group> <br />
+            <Button variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br /><br />
+            <Button onClick={() => onSubmit()}>Registrate</Button>
           </Form>
         </Card.Body>
       </Card>
