@@ -76,7 +76,7 @@ const App = () => {
               <Form.Control onChange={onChangeRegister} placeholder="Captura una contraseña" type="password" name="password" />
             </Form.Group> <br />
             <Button variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br /><br />
-            <Button onClick={() => onSubmit()}>Registrate</Button>
+            <Button variant="success" onClick={() => onSubmit()}>Registrate</Button>
           </Form>
         </Card.Body>
       </Card>
