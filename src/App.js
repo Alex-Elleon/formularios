@@ -3,7 +3,7 @@ import { Card, Container, Form, Button } from "react-bootstrap";
 import LoadingButton from "./Log";
 
 const App = () => {
-  const title = "LogIn";
+  const title = "Login";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -46,7 +46,7 @@ const App = () => {
               <Form.Label>Contraseña</Form.Label>
               <Form.Control placeholder="Ingresa tu contraseña" type="password" name="password" onChange={onChange} />
             </Form.Group>
-            <Button variant="link" className="textMuted" >Olvisaste tu contraseña?</Button><br />
+            <Button variant="link" className="textMuted" >¿Olvidaste tu contraseña?</Button><br />
             <Button variant="second" type="submit">Ingresar</Button>
           </Form>
 
@@ -55,7 +55,7 @@ const App = () => {
 
         </Card.Body>
       </Card>
-      <Card>
+      <Card className="mt-3">
         <Card.Body>
           <Card.Title>Formulario para registro de ususarios</Card.Title>
           <Form>
@@ -74,8 +74,8 @@ const App = () => {
             <Form.Group>
               <Form.Label>Contraseñas:</Form.Label>
               <Form.Control onChange={onChangeRegister} placeholder="Captura una contraseña" type="password" name="password" />
-            </Form.Group> <br />
-            <Button variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br /><br />
+            </Form.Group>
+            <Button className="mb-3" variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br />
             <Button variant="success" onClick={() => onSubmit()}>Registrate</Button>
           </Form>
         </Card.Body>

@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Card, Container, Nav, Table } from "react-bootstrap";
+import { Button, Card, Container, Nav, Navbar, Table, Form, Row, Col } from "react-bootstrap";
+import { alignPropType } from "react-bootstrap/esm/types";
 
 export const Home = () => {
     return (
@@ -7,6 +8,7 @@ export const Home = () => {
             <Nav variant="underline"
                 activeKey="/home"
                 onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+
                 <Nav.Item>
                     <Nav.Link href='/home'> Home </Nav.Link>
                 </Nav.Item>
@@ -15,6 +17,24 @@ export const Home = () => {
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href='/create-questionnaire'> Crear Nuevo Cuestionario </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Navbar>
+                        <Form inLine>
+                            <Row>
+                                <Col xs="auto">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Search"
+                                        className=" mr-sm-2"
+                                    />
+                                </Col>
+                                <Col xs="auto">
+                                    <Button type="submit">Buscar</Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Navbar>
                 </Nav.Item>
             </Nav>
             <Container className="mt-3">
@@ -27,7 +47,7 @@ export const Home = () => {
                         <Table className="mt-3" striped bordered size="sm">
                             <thead>
                                 <tr>
-                                <th>#</th>
+                                    <th>#</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Matricula</th>
@@ -42,7 +62,7 @@ export const Home = () => {
                             </thead>
 
                             <tbody>
-                            <tr>
+                                <tr>
                                     <th>2</th>
                                     <th>Mario</th>
                                     <th>Alberto</th>

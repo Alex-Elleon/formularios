@@ -14,7 +14,7 @@ export const RecoverPassword = () => {
             <Card className='mt-3'>
                 <Card.Body>
                     <Card.Title>Ingresa tu correo electronico</Card.Title>
-                    <Form.Control className='mt-3 mb-3' name="email" placeholder='Inresa tu correo' onChange={onChange} />
+                    <Form.Control className='mt-3 mb-3' name="email" placeholder='Ingresa tu correo' onChange={onChange} />
                     <Button variant='success'>Recupera tu contraseña</Button>
                 </Card.Body>
             </Card>
