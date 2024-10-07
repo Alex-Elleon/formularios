@@ -4,7 +4,7 @@ import{onChangeRegister, onClick, onSubmit} from "react"
 export const Records = ()=>{
 return(
 <Container>
-<Card className="mt-3">
+<Card className="mt-3" style={{color: 'black', background: 'linear-gradient(to right, #cca9dd, #B2B5E0)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'}}>
         <Card.Body>
           <Card.Title>Formulario para registro de ususarios</Card.Title>
           <Form>

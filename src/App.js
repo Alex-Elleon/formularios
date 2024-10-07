@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <Container className="mt-3">
-      <Card className="mb-5">
+      <Card className="mb-5" style={{background: 'linear-gradient(to right, #cca9dd, #B2B5E0)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'}}>
         <Card.Body>
           <Card.Title className="text-center">
             {title}
