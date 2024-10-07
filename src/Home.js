@@ -44,7 +44,7 @@ export const Home = () => {
                         <div className="text-end mt-3">
                             <Button variant="success" >Agregar usuario</Button>
                         </div>
-                        <Table className="mt-3" striped bordered size="sm">
+                        <Table className="mt-3" striped bordered hover variant="dark">
                             <thead>
                                 <tr>
                                     <th>#</th>
