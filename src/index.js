@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RecoverPassword } from './RecoverPassword';
 import { Home } from './Home';
-import { Questionnaires } from './Questionnaires';
+import { Records } from './Records';
 
 const router = createBrowserRouter([
   {
@@ -26,9 +26,10 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/questionnaires",
-    element: <Questionnaires />,
-  }
+    path: "/Records",
+    element: <Records />,
+  },
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -11,11 +11,11 @@ export const RecoverPassword = () => {
 
     return (
         <Container>
-            <Card>
+            <Card className='mt-3'>
                 <Card.Body>
                     <Card.Title>Ingresa tu correo electronico</Card.Title>
-                    <Form.Control name="email" placeholder='Inresa tu correo' onChange={onChange} />
-                    <Button>Recupera tu contraseña</Button>
+                    <Form.Control className='mt-3 mb-3' name="email" placeholder='Ingresa tu correo' onChange={onChange} />
+                    <Button variant='danger'>Recupera tu contraseña</Button>
                 </Card.Body>
             </Card>
         </Container>

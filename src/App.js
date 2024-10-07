@@ -1,14 +1,17 @@
+import React from "react";
 import { useState } from "react";
 import { Card, Container, Form, Button } from "react-bootstrap";
 import LoadingButton from "./Log";
+import { useNavigate } from "react-router-dom";
+
 
 const App = () => {
-  const title = "LogIn";
+  const title = "Login";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [data, setData] = useState({})
-
+  const [data, setData] = useState({});
+  const Navigate = useNavigate();
   const onChange = (e) => {
     e.preventDefault();
     if (e.target.name === "email") {
@@ -46,38 +49,16 @@ const App = () => {
               <Form.Label>Contraseña</Form.Label>
               <Form.Control placeholder="Ingresa tu contraseña" type="password" name="password" onChange={onChange} />
             </Form.Group>
-            <Button variant="link" className="textMuted" >Olvisaste tu contraseña?</Button><br />
-            <Button variant="second" type="submit">Ingresar</Button>
+            <Button variant="link" className="textMuted" onClick={()=> Navigate("/recover-password")}>¿Olvidaste tu contraseña?</Button><br />
+            
+              <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={()=> Navigate("/Home")}>Ingresar</Button>
+
+              <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={()=> Navigate("/Records")}>Registrarse</Button>
           </Form>
 
           <p>{email}</p>
           <p>{password}</p>
 
-        </Card.Body>
-      </Card>
-      <Card>
-        <Card.Body>
-          <Card.Title>Formulario para registro de ususarios</Card.Title>
-          <Form>
-            <Form.Group>
-              <Form.Label>Nombre:</Form.Label>
-              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tu nombre/nombres" name="name" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Apellidos:</Form.Label>
-              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tus apellidos" name="las_name" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Correro:</Form.Label>
-              <Form.Control onChange={onChangeRegister} placeholder="Ingresa tu correro electronico" type="email" name="email" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Contraseñas:</Form.Label>
-              <Form.Control onChange={onChangeRegister} placeholder="Captura una contraseña" type="password" name="password" />
-            </Form.Group> <br />
-            <Button variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br /><br />
-            <Button onClick={() => onSubmit()}>Registrate</Button>
-          </Form>
         </Card.Body>
       </Card>
     </Container>

@@ -20,7 +20,7 @@ function LoadingButton() {
 
     return (
         <Button
-            variant="dark"
+            variant="success"
             disabled={isLoading}
             onClick={!isLoading ? handleClick : null}
         >
