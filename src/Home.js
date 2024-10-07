@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Container, Nav, Tab, Table } from "react-bootstrap";
+import { Button, Card, Container, Nav, Table } from "react-bootstrap";
 
 export const Home = () => {
     return (
