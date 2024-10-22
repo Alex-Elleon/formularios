@@ -11,7 +11,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { RecoverPassword } from './RecoverPassword';
 import { Home } from './Home';
 import { Records } from './Records';
+import { Hack } from './Hack';
 
+import { Questionnaires } from './Questionnaires';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
     path: "/Questionnaires",
     element: <Questionnaires />,
   },
+
+
+
+
 
 
 ]);
