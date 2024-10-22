@@ -1,13 +1,12 @@
 import React from "react";
-import { Button, Card, Container, Nav, Navbar, Table, Form, Row, Col } from "react-bootstrap";
-import { alignPropType } from "react-bootstrap/esm/types";
+import { Button, Card, Container, Nav, Tab, Table } from "react-bootstrap";
 
 export const Home = () => {
     return (
         <>
             <Nav variant="underline"
                 activeKey="/home"
-                onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+                onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} style={{background: 'linear-gradient(to right, #cca9dd, #B2B5E0)'}}>
 
                 <Nav.Item>
                     <Nav.Link href='/home'> Home </Nav.Link>
@@ -18,7 +17,7 @@ export const Home = () => {
                 <Nav.Item>
                     <Nav.Link href='/create-questionnaire'> Crear Nuevo Cuestionario </Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
+                <Nav.Item style={{position: 'fixed', right: 0, top:'-1%'}}>
                     <Navbar>
                         <Form inLine>
                             <Row>
@@ -38,7 +37,7 @@ export const Home = () => {
                 </Nav.Item>
             </Nav>
             <Container className="mt-3">
-                <Card>
+                <Card style={{boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'}}>
                     <Card.Body>
                         <Card.Title>Lista de Usuarios</Card.Title>
                         <div className="text-end mt-3">
