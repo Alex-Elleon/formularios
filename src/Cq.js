@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Container, FormGroup, FormLabel, FormControl, Row, Col, FormSelect, InputGroup, CardBody, CardTitle, Card, CardText, Tooltip, OverlayTrigger, CloseButton, Form, Button } from "react-bootstrap"
+import { Container, FormGroup, FormControl, Row, Col, FormSelect, InputGroup, CardBody, CardTitle, Card, CardText, Tooltip, OverlayTrigger, CloseButton, Button } from "react-bootstrap"
 
 export const Cq = () => {
 
@@ -9,7 +9,7 @@ export const Cq = () => {
       {
         title: "Pregunta sin titulo",
         type: "radio",
-        options: "Opción 1"
+        options: ["Opción 1"]
       }
     ]
   })
@@ -24,7 +24,7 @@ export const Cq = () => {
   const onChangeCampos = (e, index) => {
     const data = Cq
     data.questions[index][e.target.name] = e.target.value
-    setCq({ data })
+    setCq({...data })
   }
 
   const addOption = (index) => {
@@ -39,7 +39,7 @@ export const Cq = () => {
       type: "radio",
       options: ["Opción 1"]
     })
-    setCq({ data })
+    setCq({...data })
   }
   const deleteQuestion = () => {
     const data = Cq
@@ -54,7 +54,7 @@ export const Cq = () => {
   const onChangeOptionTitle = (e, iq, io) => {
     const data = Cq
     data.questions[iq].options[io] = e.target.value
-    setCq({ data })
+    setCq({...data })
   }
 
   return (
@@ -67,11 +67,12 @@ export const Cq = () => {
       </Card>
       {
         Cq.questions.map((q, i) => {
+          return(
           <Card>
             <CardBody>
               <CardText>
                 {
-                  Cq.questions.length != 1 && (
+                  Cq.questions.length !== 1 && (
                     <OverlayTrigger overlay={<Tooltip> Eliminar pregunta
                     </Tooltip>}
                     >
@@ -79,6 +80,7 @@ export const Cq = () => {
                     </OverlayTrigger>
                   )
                 }
+                
               </CardText>
               <FormGroup>
                 <Row>
@@ -102,33 +104,34 @@ export const Cq = () => {
                     <ol>
                       {
                         q.options.map((o, io) => {
-
+                          return(
                           <InputGroup>
                             <FormControl
                               value={o}
                               onChange={(e) => onChangeOptionTitle}></FormControl>
 
                             {
-                              q.options.length != 1 && {
+                              q.options.length !== 1 && {
 
                               }
                             }
                           </InputGroup>
-
+                          )
                         })
 
                       }
                     </ol>
 
-                    <Button variant="info" onClick={() => addOption(i)}>Agregar Opción</Button>
+                    <Button onClick={() => addOption(i)}>Agregar Opción</Button>
                   </Col>
                 </Row>
 
               </FormGroup>
             </CardBody>
           </Card>
-
+          )
         })
+      
       }
       <Row>
         <Col>
