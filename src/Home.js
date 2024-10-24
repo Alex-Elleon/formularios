@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Container, Nav, Tab, Table } from "react-bootstrap";
+import { Button, Navbar, Form, Row, Col, Card, Container, Nav, Tab, Table } from "react-bootstrap";
 
 export const Home = () => {
     return (
@@ -75,5 +75,5 @@ export const Home = () => {
             </Container>
         </>
 
-    )
+    );
 }
