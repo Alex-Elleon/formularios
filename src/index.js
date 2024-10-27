@@ -11,7 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { RecoverPassword } from './RecoverPassword';
 import { Home } from './Home';
 import { Records } from './Records';
-import { CreateQuestionnaires } from './Cq'
+import { Cq } from './Cq'
+
 
 const router = createBrowserRouter([
   {
@@ -31,8 +32,8 @@ const router = createBrowserRouter([
     element: <Records />,
   },
   {
-   path:"/Cq",
-   element:<CreateQuestionnaires/>
+    path: "/Cq",
+    element: <Cq />
   }
 
 ]);
@@ -48,3 +49,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+

@@ -28,6 +28,7 @@ const App = () => {
     setData(nData);
   };
 
+
   const onSubmit = () => {
     // Enviar data al server
     console.log(data)
@@ -49,11 +50,11 @@ const App = () => {
               <Form.Label>Contraseña</Form.Label>
               <Form.Control placeholder="Ingresa tu contraseña" type="password" name="password" onChange={onChange} />
             </Form.Group>
-            <Button variant="link" className="textMuted" onClick={()=> Navigate("/recover-password")}>¿Olvidaste tu contraseña?</Button><br />
-            
-              <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={()=> Navigate("/Home")}>Ingresar</Button>
+            <Button variant="link" className="textMuted" onClick={() => Navigate("/recover-password")}>¿Olvidaste tu contraseña?</Button><br />
 
-              <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={()=> Navigate("/Records")}>Registrarse</Button>
+            <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={() => Navigate("/Home")}>Ingresar</Button>
+
+            <Button style={{ marginRight: '10px' }} variant="dark" type="submit" onClick={() => Navigate("/Records")}>Registrarse</Button>
           </Form>
 
           <p>{email}</p>

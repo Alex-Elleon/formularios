@@ -1,61 +1,180 @@
-import { Card, Container } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import { useState } from "react"
+import { Container, Row, Col, Form, InputGroup, Card, Tooltip, OverlayTrigger, CloseButton, Button } from "react-bootstrap"
 
-export const CreateQuestionnaires = () => {
+export const Cq = () => {
+
+  const [Cq, setCq] = useState({
+    title: "Formulario vacio",
+    description : "Texto simple",
+    questions: [
+      {
+        title: "Pregunta sin titulo",
+        type: "radio",
+        options: ["Opción 1"]
+      }
+    ]
+  });
+
+  const onChangeTitle = (e) => {
+    e.preventDefault()
+    const data = Cq;
+    data.title = e.target.value;
+    setCq({...data})
+  }
+
+  const onChangeCampos = (e, index) => {
+    const data = Cq
+    data.questions[index][e.target.name] = e.target.value
+    setCq({...data })
+  }
+
+  const addOption = (index) => {
+    const data = Cq
+    data.questions[index].options.push(`Opcion${data.questions[index].options.length + 1}`)
+  }
+
+  
+  const addQuestion = (index) => {
+    const data = Cq
+    data.questions.push({
+      title: "Pregunta sin titulo",
+      type: "radio",
+      options: ["Opción 1"]
+    })
+    setCq({...data })
+  }
+
+  const deleteOption = (iq, io) => {
+    const data = Cq;
+    const filteredOptions = data.questions[iq].options.filter (( _, i ) => i !== io); 
+    data.questions[iq].options = filteredOptions;
+    setCq({...data});
+  }
+
+  const deleteQuestion = (iq) => {
+    const data = Cq;
+    const filteredQuestions = data.questions.filter (( _, i ) => i !== iq); 
+    data.questions = filteredQuestions;
+    setCq({...data});
+  }
 
 
-    return (
-      <Container>
-        <Card className='mt-3'>
+  const sendData = () => {
+    console.log(Cq)
+  }
+
+  const onChangeOptionTitle = (e, iq, io) => {
+    const data = Cq
+    data.questions[iq].options[io] = e.target.value
+    setCq({...data })
+  }
+
+  return (
+    <Container>
+      <Card className= " mb-3 mt-5" border = "success">
         <Card.Body>
-          <Card.Title className="text-center">
-            
-          </Card.Title>
-          <Form>
-            <Form.Group>
-              <Form.Label>Formulario sin nombre</Form.Label>
-              <Form.Control placeholder="Ingresa el nombre de tu formulario"/>
-            </Form.Group>
-          </Form>
+          <Card.Title>{Cq.title}</Card.Title>
+          <Form.Control placeholder="Cambia el nombre del formulario" name="title" onChange={onChangeTitle}></Form.Control>
         </Card.Body>
-        </Card>
+      </Card>
+      {
+        Cq.questions.map((q, i) => {
+          return(
+          <Card className = "mb-4 mt-5" border = "primary">
+            <Card.Body>
+              <Card.Text className = "text-end">
+                {
+                  Cq.questions.length !== 1 && (
+                    <OverlayTrigger overlay={<Tooltip> Eliminar pregunta
+                    </Tooltip>}
+                    >
+                      <CloseButton onClick={() => deleteQuestion(i)} />
+                    </OverlayTrigger>
+                  )
+                }
+              </Card.Text>
+              <Form.Group>
+                <Row>
+                  <Col>
+                    <Form.Control
+                      value={q.title}
+                      name="title"
+                      onChange={(e) => onChangeCampos(e, i)} />
+                  </Col>
+                  <Col>
+                    <Form.Select name="type" onChange={(e) => onChangeCampos(e, i)}>
+                      <option value="radio">Opción multiple</option>
+                      <option value="checkbox">Casilla de verificación</option>
+                      <option value="select">Lista Desplegada</option>
+                      <option value="text">Respuesta corta</option>
+                    </Form.Select>
+                  </Col>
+                </Row>
+                <Row className = "m-3">
+                  <Col>
+                    <ol>
+                      {
+                        q.options.map((o, io) => (
+                          <InputGroup>
+                            <Form.Control
+                              value={o}
+                              onChange={(e) => onChangeOptionTitle}/>
 
-      <Card className="mt-5">
-      <Row className="g-2">
-        <Col md>
-          <FloatingLabel controlId="floatingInputGrid" label="Email address">
-            <Form.Control type="email" placeholder="name@example.com" />
-          </FloatingLabel>
+                            {
+                              q.options.length !== 1 && (
+                              <Button variant = "outline-danger">Eliminar Opción</Button>
+                              )
+                                  
+                            }
+                          </InputGroup>
+                        ))
+                      }
+                    </ol>
+
+                    <Button variant="outline-primary" onClick={() => addOption(i)}>Agregar Opción</Button>{' '}
+                  </Col>
+                </Row>
+
+              </Form.Group>
+            </Card.Body>
+          </Card>
+          )
+        })
+      }
+              {
+              Cq.questions.map((i) => {
+                return(
+                Cq.questions.length !== 1 && (
+                    <OverlayTrigger overlay = {<Tooltip>Eliminar Opcion</Tooltip>}>
+                      <CloseButton onClick={() => deleteOption(i)}/>
+                    </OverlayTrigger>
+                  )
+                )
+                })
+                  }
+
+      <Row>
+        <Col>
+          <Row>
+            <Col className = "text-center">
+              <Button variant="outline-dark" onClick={() => addQuestion()}>Agregar pregunta</Button>{' '}
+            </Col>
+          </Row>
         </Col>
-        <Col md>
-          <FloatingLabel
-            controlId="floatingSelectGrid"
-            label="Works with selects"
-          >
-            <Form.Select aria-label="Floating label select example">
-              <option>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </Form.Select>
-          </FloatingLabel>
+        <Col>
+          <Row>
+            <Col className = "text-center">
+              <Button variant = "outline-success" onClick={() => sendData()}>Guardar Cuestionario </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
-      </Card>
-      </Container>
-  );
+     {/*  <Button onClick={()=>setSjowQuestionnaire(true)}>Vista Previa</Button>
+      {
+        showQuestionnaire &&(
+          <AnswerQuesionnaire questionnaire = {createQuestionnaire}/>   
+        )
+      } */}
+    </Container>
+  )
 }
-
-
-{/* <Form.Group>
-<Form.Label>Contraseña</Form.Label>
-<Form.Control placeholder="Ingresa tu contraseña"/>
-</Form.Group> */}
-
-
-
-export default CreateQuestionnaires;
-
