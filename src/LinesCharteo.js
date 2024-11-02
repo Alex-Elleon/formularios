@@ -20,7 +20,7 @@ import {
     Legend
   );
 
-  const beneficios = [1, 34, 53, 67, 23, 45, 17, 25];
+  const beneficios = [1, 34, 53, 67, 23, 45, 17, 25, 52, 12, 86, 65];
   const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
   const midata = {

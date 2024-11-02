@@ -31,6 +31,7 @@ export const Cq = () => {
   const addOption = (index) => {
     const data = Cq
     data.questions[index].options.push(`Opcion${data.questions[index].options.length + 1}`)
+    setCq({...data});
   }
 
   
@@ -45,10 +46,10 @@ export const Cq = () => {
   }
 
   const deleteOption = (iq, io) => {
-    const data = Cq;
+    const data = {...Cq};
     const filteredOptions = data.questions[iq].options.filter (( _, i ) => i !== io); 
     data.questions[iq].options = filteredOptions;
-    setCq({...data});
+    setCq(data);
   }
 
   const deleteQuestion = (iq) => {
@@ -64,9 +65,9 @@ export const Cq = () => {
   }
 
   const onChangeOptionTitle = (e, iq, io) => {
-    const data = Cq
+    const data = {...Cq}
     data.questions[iq].options[io] = e.target.value
-    setCq({...data })
+    setCq(data);
   }
 
   return (
@@ -115,14 +116,14 @@ export const Cq = () => {
                     <ol>
                       {
                         q.options.map((o, io) => (
-                          <InputGroup>
+                          <InputGroup key={io}>
                             <Form.Control
                               value={o}
-                              onChange={(e) => onChangeOptionTitle}/>
+                              onChange={(e) => onChangeOptionTitle(e, i, io)}/>
 
                             {
                               q.options.length !== 1 && (
-                              <Button variant = "outline-danger">Eliminar Opción</Button>
+                              <Button variant = "outline-danger" onClick={() => deleteOption(i, io)}>Eliminar Opción</Button>
                               )
                                   
                             }

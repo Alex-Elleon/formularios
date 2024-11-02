@@ -15,7 +15,7 @@ export const Home = () => {
                     <Nav.Link href='/'> Bases </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href='/create-questionnaire'> Crear Nuevo Cuestionario </Nav.Link>
+                    <Nav.Link href='/Cq'> Crear Nuevo Cuestionario </Nav.Link>
                 </Nav.Item>
                 <Nav.Item style={{position: 'fixed', right: 0, top:'-1%'}}>
                     <Navbar>
