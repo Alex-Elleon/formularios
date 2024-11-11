@@ -4,7 +4,6 @@ import { Card, Container, Form, Button } from "react-bootstrap";
 import LoadingButton from "./Log";
 import { useNavigate } from "react-router-dom";
 
-
 const App = () => {
   const title = "Login";
   const [email, setEmail] = useState("");

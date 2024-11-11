@@ -142,18 +142,7 @@ export const Cq = () => {
           )
         })
       }
-              {
-              Cq.questions.map((i) => {
-                return(
-                Cq.questions.length !== 1 && (
-                    <OverlayTrigger overlay = {<Tooltip>Eliminar Opcion</Tooltip>}>
-                      <CloseButton onClick={() => deleteOption(i)}/>
-                    </OverlayTrigger>
-                  )
-                )
-                })
-                  }
-
+        
       <Row>
         <Col>
           <Row>

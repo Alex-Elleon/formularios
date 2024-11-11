@@ -1,4 +1,4 @@
-import { Container, Card, Form, Button } from "react-bootstrap";
+import { Container, Card, Form, Button, Row } from "react-bootstrap";
 import{onChangeRegister, onClick, onSubmit} from "react"
 
 export const Records = ()=>{
@@ -17,15 +17,18 @@ return(
               <Form.Control onChangeRegister={onChangeRegister} placeholder="Ingresa tus apellidos" name="las_name" />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Correro:</Form.Label>
-              <Form.Control onChangeRegister={onChangeRegister} placeholder="Ingresa tu correro electronico" type="email" name="email" />
+              <Form.Label>Correo:</Form.Label>
+              <Form.Control onChangeRegister={onChangeRegister} placeholder="Ingresa tu correo electronico" type="email" name="email" />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Contraseñas:</Form.Label>
+              <Form.Label>Contraseña:</Form.Label>
               <Form.Control onChangeRegister={onChangeRegister} placeholder="Captura una contraseña" type="password" name="password" />
             </Form.Group>
-            <Button className="mt-3" variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button> <br />
-            <Button className="mt-3" variant="success" onClick={() => onSubmit()}>Registrate</Button>
+            
+            <Button className="mt-4" variant="outline-secondary" size="sm" type="reset">Borrar respuestas</Button>
+            <br/>
+            <Button className="mt-4" variant="info" onClick={() => onSubmit()}>Registrate</Button>
+            
           </Form>
         </Card.Body>
       </Card>
