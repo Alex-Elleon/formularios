@@ -13,6 +13,8 @@ import { Home } from './Home';
 import { Records } from './Records';
 import { Cq } from './Cq';
 import { Charteo } from './Charteo';
+import Questionnaires from './Questionnaires';
+
 
 
 const router = createBrowserRouter([
@@ -38,7 +40,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/Charteo",
-    element: <Charteo />
+    element: <Charteo />,
+  },
+
+  {
+    path: "/Questionnaires",
+    element: < Questionnaires/>,
   }
 
 ]);
